@@ -1,0 +1,8 @@
+#livingRoom-home{
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../../img/livingRoom-homepage.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

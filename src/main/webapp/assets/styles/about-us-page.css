@@ -1,0 +1,158 @@
+#about-us-page{
+    width: 100vw;
+    height: auto;
+    background-color: #DCDCDC;;
+    display: flex;
+    justify-content:center;
+}
+
+.content{
+    width: 85vw;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.about-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.title{
+    color: black;
+    font-size: 3rem;
+    font-family: "Inter", serif;
+ }
+
+.text-section{
+    width: 40vw;
+}
+
+.para{
+    font-size: 1.1rem;
+    font-family: "Figtree", serif;
+    color: black;
+
+}
+
+.count-section{
+    display: flex;
+    justify-content: space-between;
+}
+
+.count{
+    color: black;
+    font-size: 3rem;
+
+    margin-bottom: 0;
+    margin-top: 15px;
+}
+
+
+
+.img-section{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+
+}
+
+.about-img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+}
+
+
+@media all and (max-width: 1024px) {
+    .text-section {
+        width: 45vw;
+    }
+
+    .count {
+        font-size: 2.5rem;
+    }
+
+    .para {
+        font-size: 1rem;
+    }
+
+    .about-img {
+        width: 350px;
+        height: 350px;
+    }
+}
+
+
+@media all and (max-width: 768px) {
+    .content{
+        flex-direction: column;
+    }
+}
+
+
+@media all and (max-width: 425px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .para {
+        font-size: 0.95rem;
+    }
+
+    .count {
+        font-size: 2rem;
+    }
+
+    .count-cont {
+        flex: 0 0 100%;
+    }
+
+    .about-img {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+
+@media all and (max-width: 375px) {
+    .title {
+        font-size: 2.2rem;
+    }
+
+    .para {
+        font-size: 0.9rem;
+    }
+
+    .count {
+        font-size: 1.8rem;
+    }
+
+    .about-img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* Very small phones (320px and smaller) */
+@media all and (max-width: 320px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .para {
+        font-size: 0.85rem;
+    }
+
+    .count {
+        font-size: 1.5rem;
+    }
+
+    .about-img {
+        width: 180px;
+        height: 180px;
+    }
+}

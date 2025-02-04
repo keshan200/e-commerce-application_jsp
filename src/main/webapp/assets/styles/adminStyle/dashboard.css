@@ -1,0 +1,101 @@
+#dashboard {
+    width: 100vw;
+    height: 100vh; /* Full height of the viewport */
+    background-color: #555555;
+}
+
+.cont {
+    display: flex;
+    height: 100%; /* Fill the entire viewport height */
+}
+
+.side-panel {
+    width: 20vw; /* 20% of the viewport width */
+    height: 100vh; /* Full viewport height */
+    background-color: #f4f4f4;
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+.panel-content {
+    text-align: center;
+    width: 100%;
+}
+
+.panel-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.panel-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.panel-btn {
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+    width: 80%;
+}
+
+.panel-btn:hover {
+    background-color: #0056b3;
+}
+
+.logout-btn {
+    background-color: #dc3545;
+}
+
+.logout-btn:hover {
+    background-color: #c82333;
+}
+
+.main-content {
+    margin-left: 20vw; /* Push content to the right of the side panel */
+    padding: 10px;
+    flex: 1; /* Allow this section to take up remaining space */
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dashboard-main {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+}

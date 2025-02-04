@@ -1,0 +1,76 @@
+#sale-page {
+    width: 100vw;
+    padding-top: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 100px;
+    background: linear-gradient(to top, #1C1C1C 50%, #f9f9f9 30%);
+}
+
+.sale-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2em;
+    padding: 1em;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+.sale-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    padding: 1.5em;
+}
+
+.sale-img {
+    width: 90%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.sale-info h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5em;
+    color: white;
+}
+
+.sale-info p {
+    font-size: 1rem;
+    margin: 0.5em 0;
+    color: white;
+}
+
+.sale-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #FFD700;
+}
+
+.discount {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.buy-now {
+    padding: 0.5em 1em;
+    background-color: #FFD700;
+    color: #1C1C1C;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1em;
+    transition: background-color 0.3s;
+}
+
+.buy-now:hover {
+    background-color: #E6B800;
+}

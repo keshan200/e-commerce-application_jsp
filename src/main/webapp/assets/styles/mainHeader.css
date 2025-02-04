@@ -1,0 +1,142 @@
+.brand{
+    margin: 0;
+}
+
+
+#main-nav{
+    border: 1px solid black;
+    width: 20vw;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    align-items: center;
+}
+
+.nav-list{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+
+#main-header {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: -5px;
+    left: 0;
+    transition: top 0.8s ease-in-out;
+    z-index: 999;
+}
+
+.nav-link{
+    color: white;
+}
+
+.navbar {
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: black /*#f0f0f0;*/;
+}
+
+.search-bar{
+    width: 250px;
+    height: 31px;
+    padding: 20px;
+    border: none;
+    border-radius: 50px;
+    background-color: white;
+}
+
+.cart{
+    height: auto;
+    width: 50px;
+    z-index: 1;
+    display: none;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-left: auto;
+}
+
+.btnH {
+    padding: 6px 20px;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.register-btn {
+    background-color: black;
+    border: 2px solid white;
+}
+
+.register-btn:hover {
+    background-color: white;
+    color: black;
+    transform: scale(1.05);
+}
+
+.login-btn {
+    background-color: black;
+    border: 2px solid white;
+}
+
+.login-btn:hover {
+    background-color: white;
+    color: black;
+    transform: scale(1.05);
+}
+
+.admin{
+    width: 50px;
+    height: auto;
+}
+
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    border-radius: 5px;
+    padding: 10px 0;
+    min-width: 150px;
+}
+
+.dropdown li {
+    padding: 10px 20px;
+}
+
+.dropdown li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown li a:hover {
+    background-color: #555;
+}
+
+
+.nav-item:hover .dropdown {
+    display: block;
+}

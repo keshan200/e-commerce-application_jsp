@@ -1,0 +1,84 @@
+#footer-page{
+    width: 100vw;
+    padding-top: 50px;
+}
+
+.footer-image-section {
+    width: 100vw;
+    height: 29vw;
+    background-image: url("../img/footer.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: overlay;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-text-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.footer-title{
+    font-size: 3rem;
+    font-family: "Inter", serif;
+    color: white;
+    z-index: 1;
+    font-weight: bold;
+}
+
+.footer-desc{
+    font-family: "Figtree", serif;
+    font-size: 1.1rem;
+    color: white;
+    margin: 0;
+    z-index: 1;
+}
+
+.last-footer-page{
+    width: 100vw;
+    height: auto;
+    background-color: black;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    gap: 35em;
+
+}
+
+.footer-text{
+    font-family: "Figtree", serif;
+    font-size: 2rem;
+    color: white;
+    margin: 0;
+}
+.footer-text2{
+    font-family: "Figtree", serif;
+    font-size: 1.1rem;
+   color: darkgray;
+    margin: 0;
+}
+
+.address{
+    font-family: "Figtree", serif;
+    font-size: 1.1rem;
+    color: white;
+}
+
+.ftxt{
+    font-family: "Figtree", serif;
+    font-size: 1.1rem;
+    color: darkgray;
+}
