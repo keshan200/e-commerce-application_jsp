@@ -1,847 +1,599 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customer Dashboard - Incense Stick Ecom</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <title>JSP - Hello World</title>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <meta name="keywords" content="html, css, javaScript">
+  <meta name="author" content="Keshan Silva">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@500&family=Figtree:wght@300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend:wght@300&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+IN:wght@100..400&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="assets/styles/normalize.css">
+
+  <link rel="stylesheet" href="assets/styles/index.css">
+  <link rel="stylesheet" href="assets/styles/mainHeader.css">
+  <link rel="stylesheet" href="assets/styles/categories-section.css">
+  <link rel="stylesheet" href="assets/styles/sale-page.css">
+  <link rel="stylesheet" href="assets/styles/fearured-product-page.css">
+  <link rel="stylesheet" href="assets/styles/about-us-page.css">
+  <link rel="stylesheet" href="assets/styles/lates-product-page.css">
+  <link rel="stylesheet" href="assets/styles/details-page.css">
+  <link rel="stylesheet" href="assets/styles/footer-page.css">
+
+
+  <link rel="stylesheet" href="assets/styles/buy-now.css">
+
+
+
+<%--stye--%>
   <style>
-
-    header {
-      background-color: black;
-    }
-
-    body{overflow: hidden}
-
-
-    nav {
-      padding: 1em;
-    }
-
-    .nav-list {
-      list-style-type: none;
-      display: flex;
-      justify-content: center;
-      gap: 2em;
-      margin: 0;
-    }
-
-    .nav-list li {
-      display: inline-block;
-    }
-
-    .nav-list a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.2rem;
-      padding: 0.5em 1em;
-      display: block;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-
-    .nav-list a:hover {
-      background-color: #444;
-    }
-
-    .admin-navigation{
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-    }
-
-    .brand-admin{
-      margin: 0;
-      font-size: 2rem;
-      color: white;
-    }
-
-    .welcome-admin-panel{
-      width: 100vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-
-    .main-content {
-       width: 97vw;
-      padding: 13px;
-    }
-    .dashboard-header {
-      background-color: #f1f1f1;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      gap: 166px
-    }
-
-
-
-    @media (max-width: 768px) {
-      .nav-list {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-
-
-
-
-    /*add product*/
-
-    .modal-content {
-      padding: 30px;
-    }
-
-    .modal {
-      --bs-modal-width: 751px;
-    }
-
-    #add-product-page,#category-manage-page ,#view-customer-details{
-      display: flex;
-      width: 100vw;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .content{
-      width: 95vw;
-    }
-
-    thead {
-      position: sticky;
-      top: 0;
-      background: #f8f9fa; /* Light background for the header */
-      z-index: 2; /* Ensure it appears above the rows */
-    }
-
-
 
 
   </style>
 
 
 </head>
+
+
 <body>
 
+<main id="homePage" class="page">
 
-<header>
-  <nav class="admin-navigation">
-    <p class="brand-admin">DecoraLUX</p>
+  <header class="header d-flex justify-content-center">
+    <nav class="navigation z-2 position-absolute ">
 
-    <ul class="nav-list">
-      <li><a href="#" id="dashboard">Dashboard</a></li>
-      <li><a href="#" id="view-cus-details">View Customer Details</a></li>
-      <li><a href="#" id="manage-product">Manage Products</a></li>
-      <li><a href="#" id="manage-categories">Manage Categories</a></li>
-      <li><a href="#" id="manage-users">Manage Users</a></li>
-    </ul>
-  </nav>
+      <ul class="ul">
+        <li>Categories</li>
+        <li>Shop</li>
+      </ul>
 
-  <section class="welcome-admin-panel">
-    <div class="main-content" id="main-content">
-      <div class="dashboard-header d-flex" >
+
+      <div class="brand">
+        <p class="logo-text">DecoraLux</p>
+      </div>
+
+      <ul class="ul">
+        <li>Contact</li>
+        <li>Login</li>
+      </ul>
+
+    </nav>
+  </header>
+
+
+
+  <main class="home-content  d-flex justify-content-center">
+
+    <section class="home-section-1" style="z-index: 2">
+      <div>
+        <p class="county">DecoraLUX Furniture Store,SriLanka</p>
+      </div>
+
+      <div>
+        <p class="home-txt">LUXURY</p>
+        <p class="home-txt">FURNITURE</p>
+      </div>
+    </section>
+
+    <section class="home-section-2 d-flex" style="z-index: 2">
+
+      <div class="home-btn">
+        <p class="home-description">Let's create and discover new furniture together.</p>
+        <button class="btn btn-light">View new collection</button>
+      </div>
+
+
+      <section class="home-section-3">
         <div>
-        <h1>Welcome Back,ADMIN</h1>
-        <p>We're so happy to have you back. Explore your orders, update your profile, and keep track of your favorite incense products.</p>
+          <p  class="home-description">At DecoraLUX,we're here to help you and what you love</p>
         </div>
 
-        <img src="assets/img/mirror.jpg" style="width: 93px;height: auto;border-radius: 100px">
+        <div>
+          <p  class="home-description">We'll put it all together for you.Free one-on-one design help,in our store or in your home!</p>
+        </div>
+      </section>
+
+    </section>
+
+  </main>
+
+</main>
+
+<main id="main-header" class="active">
+
+  <header class="navbar">
+
+    <p class="brand">DecoraLUX</p>
+
+    <nav id="main-nav" class="navbar">
+
+      <ul class="nav-list">
+        <li class="nav-item"><a href="admin.jsp" class="nav-link">Categories</a></li>
+
+        <ul class="dropdown">
+          <li><a href="#">Category 1</a></li>
+          <li><a href="#">Category 2</a></li>
+          <li><a href="#">Category 3</a></li>
+          <li><a href="#">Category 4</a></li>
+        </ul>
+
+
+        <li class="nav-item"><a href="" class="nav-link">About Us</a></li>
+        <li class="nav-item"><a href="" class="nav-link">New Arrival</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <input type="text" class="search-bar">
+    </div>
+
+
+
+    <div class="header-image" style="display: flex;gap: 60px">
+      <img class="cart" src="assets/img/cart-black.png" alt="Cart">
+
+
+
+      <div class="button-group">
+        <a href="admin.jsp" style="color: white"><img class="admin" src="assets/img/admin.png"></a>
+
+        <a href="" type="submit" class="btnH register-btn" style="z-index: 1">Register</a>
+        <a href="" class="btnH login-btn" style="z-index: 1">Login</a>
+      </div>
+    </div>
+
+
+
+
+  </header>
+
+</main>
+
+<main id="sale-page" class="page">
+
+  <div><h1 class="products-page-Title">DecoraLUX SALE</h1></div>
+  <section class="sale-section">
+
+    <div class="sale-item">
+      <img src="assets/img/mirror.jpg" alt="Product 1" class="sale-img">
+      <div class="sale-info">
+        <p class="discount">-30%</p>
+        <h2>Luna Chair</h2>
+      </div>
+    </div>
+
+    <div class="sale-item">
+      <img src="assets/img/chair.jpg" alt="Product 1" class="sale-img">
+      <div class="sale-info">
+        <p class="discount">-30%</p>
+        <h2>Luna Chair</h2>
+      </div>
+    </div>
+
+    <div class="sale-item">
+      <img src="assets/img/mirror.jpg" alt="Product 1" class="sale-img">
+      <div class="sale-info">
+        <p class="discount">-30%</p>
+        <h2>Luna Chair</h2>
       </div>
     </div>
   </section>
-</header>
+</main>
+
+
+<main id="category-page" class="page">
+
+   <main class="category-section">
+
+     <div><h1 class="title" style="color: white!important;margin-bottom: 140px!important;">DISCOVER OUR NEW SETS</h1></div>
+
+
+     <section class="categories">
+
+       <div class="category">
+         <img src="assets/img/living-room.jpg" alt="living-room" class="category-img">
+         <div class="category-text">
+           <h2>Living Room Set</h2>
+           <p>Perhaps the room you spend the most time relaxing in is your living room, and you want it to be comfortable. Combining modern style with comfort is easy.</p>
+           <a href="" class="view-more">View more</a>
+         </div>
+       </div>
+
+       <div class="category">
+         <img src="assets/img/kitchen-set.avif" alt="kitchen-set" class="category-img">
+         <div class="category-text">
+           <h2>Kitchen Set</h2>
+           <p>Perhaps the kitchen is the room you spend the most time in, and you want it to be comfortable. It's easy to combine modern style and comfort.</p>
+           <a href="" class="view-more">View more</a>
+         </div>
+       </div>
+
+       <div class="category">
+         <img src="assets/img/bed-room.jpg" alt="bed-room" class="category-img">
+         <div class="category-text">
+           <h2>Bed Room Set</h2>
+           <p>Perhaps the room you spend the most time relaxing in is your living room, and you want it to be comfortable. Combining modern style with comfort is easy.</p>
+           <a href="" class="view-more">View more</a>
+         </div>
+       </div>
 
 
 
-<%--product Manage page--%>
-<main  id="add-product-page" style="margin-top: 30px;display: none">
 
-  <section class="content">
-  <div class="card">
-    <h5 class="card-header">Featured</h5>
-    <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+     </section>
 
-      <div class="">
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">Add New Product</button>
-      </div>
-    </div>
+
+
+   </main>
+
+</main>
+
+
+<main id="featured-products-page" class="page">
+
+  <div class="products-header">
+    <p class="products-page-Title">OUR FEATURED ITEMS</p>
   </div>
 
-  <%--add model--%>
-  <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
-
-    <div class="modal-dialog">
-
-      <div class="modal-content">
-
-        <div class="modal-header">
-          <h5 class="modal-title" id="addProductModalLabel">Add New Product</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
 
 
+  <section class="product-grid">
 
-        <form class="row g-3">
+    <div class="product-container">
+      <div class="product-card">
+          <img class="product-img" src="" alt="Product 1">
 
-          <div class="col-md-6">
-            <label for="image" class="form-label">Image:</label>
-            <input type="file" class="form-control" id="image" name="itemImage" accept="image/*">
-          </div>
-
-          <div class="col-md-6">
-            <label for="ProductName" class="form-label">Item Name:</label>
-            <input type="text" class="form-control" id="ProductName">
-          </div>
-
-          <div class="col-12">
-            <label for="description" class="form-label">Description</label>
-            <input type="text" class="form-control" id="description" >
-          </div>
-
-          <div class="col-12">
-            <label for="categories" class="form-label">Categories:</label>
-            <select id="categories" class="form-select">
-              <option selected>Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-
-          <div class="col-md-6">
-            <label for="inputCity" class="form-label">Material</label>
-            <input type="text" class="form-control" id="inputCity">
-          </div>
-
-          <div class="col-md-4">
-            <label for="price" class="form-label">Unit Price:</label>
-            <input id="price" class="form-control">
-          </div>
-
-          <div class="col-md-2">
-            <label for="qty" class="form-label">Quantity</label>
-            <input type="number" class="form-control" id="qty">
-          </div>
-
-
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary">Sign in</button>
-          </div>
-
-        </form>
-
+            <div class="product-info">
+        <p class="product-name"></p>
+        <p class="product-price"></p>
+       </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
       </div>
-
     </div>
+
+    <div class="product-container">
+      <div class="product-card">
+        <img class="product-img" src="assets/img/chair.jpg" alt="Product 1">
+
+        <div class="product-info">
+          <p class="product-name">Wood Chair</p>
+          <p class="product-price">$99.99</p>
+        </div>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-container">
+      <div class="product-card">
+        <img class="product-img" src="assets/img/mirror.jpg" alt="Product 1">
+
+        <div class="product-info">
+          <p class="product-name">Mirror</p>
+          <p class="product-price">$99.99</p>
+        </div>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+
+
+
+
+
+  </section>
+
+
+</main>
+
+
+<main id="about-us-page" class="page">
+
+  <main class="content">
+
+    <section class="about-section">
+
+      <p class="title">OUR ADVANTAGES</p>
+
+      <section class="text-section">
+
+        <p class="para">We provide high-quality merchandise, great value, and exceptional customer service. We connect people with products and services in new and unexpected ways. We do our part to create dream homes for all.</p>
+        <p class="para">Industry leaders and influencers recognize as one of the most trustworthy retail companies in the, ranking high for both customer and employee satisfaction.</p>
+
+        <div class="count-section">
+
+          <div class="count-cont">
+            <p class="count">800+</p>
+            <p class="para">Model Finished</p>
+          </div>
+
+          <div class="count-cont">
+            <p class="count">200+</p>
+            <p class="para">Unique assortments</p>
+          </div>
+
+          <div class="count-cont">
+            <p class="count">30+</p>
+            <p class="para">Across the country</p>
+          </div>
+
+        </div>
+      </section>
+
+
+    </section>
+
+    <div class="img-section">
+      <img class="about-img" src="assets/img/home.webp">
+    </div>
+
+  </main>
+
+
+</main>
+
+
+<main id="lates-product" class="page">
+
+  <div class="products-header">
+    <p class="products-page-Title">OUR FEATURED ITEMS</p>
   </div>
 
-  <%--update model--%>
-  <div class="modal fade" id="updateProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+  <section class="product-grid">
 
-      <div class="modal-dialog">
+    <div class="product-container">
 
-        <div class="modal-content">
+      <div class="product-card">
+        <img class="product-img" src="assets/img/chair.jpg" alt="Product 1">
 
-          <div class="modal-header">
-            <h5 class="modal-title" id="updateProductModalLabel">Add New Product</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-
-
-
-          <form class="row g-3">
-
-            <div class="col-md-6">
-              <label for="imageU" class="form-label">Image:</label>
-              <input type="file" class="form-control" id="imageU" name="itemImage" accept="image/*">
-            </div>
-
-            <div class="col-md-6">
-              <label for="ProductNameU" class="form-label">Item Name:</label>
-              <input type="text" class="form-control" id="ProductNameU">
-            </div>
-
-            <div class="col-12">
-              <label for="descriptionU" class="form-label">Description</label>
-              <input type="text" class="form-control" id="descriptionU" >
-            </div>
-
-            <div class="col-12">
-              <label for="categoriesU" class="form-label">Categories:</label>
-              <select id="categoriesU" class="form-select">
-                <option selected>Choose...</option>
-                <option>...</option>
-              </select>
-            </div>
-
-            <div class="col-md-6">
-              <label for="materialU" class="form-label">Material</label>
-              <input type="text" class="form-control" id="materialU">
-            </div>
-
-            <div class="col-md-4">
-              <label for="priceU" class="form-label">Unit Price:</label>
-              <input id="priceU" class="form-control">
-            </div>
-
-            <div class="col-md-2">
-              <label for="qtyU" class="form-label">Quantity</label>
-              <input type="number" class="form-control" id="qtyU">
-            </div>
-
-
-            <div class="col-12">
-              <button type="submit" class="btn btn-primary">Update</button>
-            </div>
-
-          </form>
-
+        <div class="product-info">
+          <p class="product-name">Product Name 1</p>
+          <p class="product-price">$99.99</p>
         </div>
-
+        <button class="add-to-cart-btn">Add to Cart</button>
       </div>
     </div>
-    <%--table--%>
-    <div class="table-responsive" style="max-height: 400px; overflow-y: auto; margin-top: 20px;">
-      <table class="table table-bordered">
-        <thead class="table-light">
-        <tr>
-          <th>Item Image</th>
-          <th>Item Name</th>
-          <th>Item Description</th>
-          <th>Quantity</th>
-          <th>Unit Price</th>
-          <th>Material</th>
-          <th>Category</th>
-          <th>#Action</th>
-        </tr>
-        </thead>
-         <tbody>
-              <tr>
-          <td><img src="image-path.jpg" alt="Item Image" style="width:50px; height:50px;"></td>
-          <td>Sample Item</td>
-          <td>A description of the item</td>
-          <td>10</td>
-          <td>$25.00</td>
-          <td>Wood</td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
-              <tr>
-                <td><img src="image-path.jpg" alt="Item Image" style="width:50px; height:50px;"></td>
-                <td>Sample Item</td>
-                <td>A description of the item</td>
-                <td>10</td>
-                <td>$25.00</td>
-                <td>Wood</td>
-                <td>Furniture</td>
-                <td>
-                  <div class="d-flex gap-2">
-                    <button type="button" class="btn btn-primary">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><img src="image-path.jpg" alt="Item Image" style="width:50px; height:50px;"></td>
-                <td>Sample Item</td>
-                <td>A description of the item</td>
-                <td>10</td>
-                <td>$25.00</td>
-                <td>Wood</td>
-                <td>Furniture</td>
-                <td>
-                  <div class="d-flex gap-2">
-                    <button type="button" class="btn btn-primary">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><img src="image-path.jpg" alt="Item Image" style="width:50px; height:50px;"></td>
-                <td>Sample Item</td>
-                <td>A description of the item</td>
-                <td>10</td>
-                <td>$25.00</td>
-                <td>Wood</td>
-                <td>Furniture</td>
-                <td>
-                  <div class="d-flex gap-2">
-                    <button type="button" class="btn btn-primary">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><img src="image-path.jpg" alt="Item Image" style="width:50px; height:50px;"></td>
-                <td>Sample Item</td>
-                <td>A description of the item</td>
-                <td>10</td>
-                <td>$25.00</td>
-                <td>Wood</td>
-                <td>Furniture</td>
-                <td>
-                  <div class="d-flex gap-2">
-                    <button type="button" class="btn btn-primary">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><img src="image-path.jpg" alt="Item Image" style="width:50px; height:50px;"></td>
-                <td>Sample Item</td>
-                <td>A description of the item</td>
-                <td>10</td>
-                <td>$25.00</td>
-                <td>Wood</td>
-                <td>Furniture</td>
-                <td>
-                  <div class="d-flex gap-2">
-                    <button type="button" class="btn btn-primary">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><img src="image-path.jpg" alt="Item Image" style="width:50px; height:50px;"></td>
-                <td>Sample Item</td>
-                <td>A description of the item</td>
-                <td>10</td>
-                <td>$25.00</td>
-                <td>Wood</td>
-                <td>Furniture</td>
-                <td>
-                  <div class="d-flex gap-2">
-                    <button type="button" class="btn btn-primary">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><img src="image-path.jpg" alt="Item Image" style="width:50px; height:50px;"></td>
-                <td>Sample Item</td>
-                <td>A description of the item</td>
-                <td>10</td>
-                <td>$25.00</td>
-                <td>Wood</td>
-                <td>Furniture</td>
-                <td>
-                  <div class="d-flex gap-2">
-                    <button type="button" class="btn btn-primary">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><img src="image-path.jpg" alt="Item Image" style="width:50px; height:50px;"></td>
-                <td>Sample Item</td>
-                <td>A description of the item</td>
-                <td>10</td>
-                <td>$25.00</td>
-                <td>Wood</td>
-                <td>Furniture</td>
-                <td>
-                  <div class="d-flex gap-2">
-                    <button type="button" class="btn btn-primary">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><img src="image-path.jpg" alt="Item Image" style="width:50px; height:50px;"></td>
-                <td>Sample Item</td>
-                <td>A description of the item</td>
-                <td>10</td>
-                <td>$25.00</td>
-                <td>Wood</td>
-                <td>Furniture</td>
-                <td>
-                  <div class="d-flex gap-2">
-                    <button type="button" class="btn btn-primary">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
-                  </div>
-                </td>
-              </tr>
 
+    <div class="product-container">
+      <div class="product-card">
+        <img class="product-img" src="assets/img/chair.jpg" alt="Product 1">
 
-
-        </tbody>
-      </table>
+        <div class="product-info">
+          <p class="product-name">Product Name 1</p>
+          <p class="product-price">$99.99</p>
+        </div>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
     </div>
 
+    <div class="product-container">
+      <div class="product-card">
+        <img class="product-img" src="assets/img/chair.jpg" alt="Product 1">
+
+        <div class="product-info">
+          <p class="product-name">Product Name 1</p>
+          <p class="product-price">$99.99</p>
+        </div>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-container">
+      <div class="product-card">
+        <img class="product-img" src="assets/img/chair.jpg" alt="Product 1">
+
+        <div class="product-info">
+          <p class="product-name">Product Name 1</p>
+          <p class="product-price">$99.99</p>
+        </div>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-container">
+
+      <div class="product-card">
+        <img class="product-img" src="assets/img/chair.jpg" alt="Product 1">
+
+        <div class="product-info">
+          <p class="product-name">Product Name 1</p>
+          <p class="product-price">$99.99</p>
+        </div>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-container">
+      <div class="product-card">
+        <img class="product-img" src="assets/img/chair.jpg" alt="Product 1">
+
+        <div class="product-info">
+          <p class="product-name">Product Name 1</p>
+          <p class="product-price">$99.99</p>
+        </div>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-container">
+      <div class="product-card">
+        <img class="product-img" src="assets/img/chair.jpg" alt="Product 1">
+
+        <div class="product-info">
+          <p class="product-name">Product Name 1</p>
+          <p class="product-price">$99.99</p>
+        </div>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-container">
+      <div class="product-card">
+        <img class="product-img" src="assets/img/chair.jpg" alt="Product 1">
+
+        <div class="product-info">
+          <p class="product-name">Product Name 1</p>
+          <p class="product-price">$99.99</p>
+        </div>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
 
   </section>
 
+
 </main>
 
-<%--Category Manage Page--%>
-<main  id="category-manage-page" style="margin-top: 30px ;display: none">
+<%--buy now page usong in single page--%>
+<main id="buy-now-page" style="display: none">
 
-  <section class="content">
-    <div class="card">
-      <h5 class="card-header">Featured</h5>
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  <main class="buy-now-container">
 
-        <div class="">
-          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategoryModal">Add New Product</button>
+    <section class="buynow-section">
+
+      <section class="buynow-image-container">
+        <img src="assets/img/mirror.jpg" class="buynow-image">
+      </section>
+
+      <section class="text">
+
+        <h1 class="product-name-buynow">LUNA CHAIR</h1>
+
+        <div class="description-container">
+          <p class="description-buynow">
+            The Luna Chair is a modern, stylish seating option designed for comfort and aesthetics, often featuring sleek lines and ergonomic support. It's suitable for contemporary living rooms or office spaces.
+          </p>
         </div>
-      </div>
-    </div>
 
-    <%--add model--%>
-    <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="addCategoryModalLabel">Add New Categories</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="price-sec">
+          <div class="price-section">
+            <p class="price-text tit">Price :</p>
+            <p class="price-rs num">RS.3500.00</p>
           </div>
 
-          <form class="row g-3">
-
-            <div class="col-md-6">
-              <label for="cat-img" class="form-label">Category Image:</label>
-              <input type="file" class="form-control" id="cat-img" accept="image/*">
-            </div>
-
-            <div class="col-md-4">
-              <label for="category" class="form-label">Category</label>
-              <input id="category" class="form-control" type="text">
-            </div>
-
-            <div class="col-12">
-              <button type="submit" class="btn btn-primary">Sign in</button>
-            </div>
-          </form>
-
-        </div>
-      </div>
-    </div>
-
-    <%--update model--%>
-    <div class="modal fade" id="updateCategoryModal" tabindex="-1" aria-labelledby="updateCategoryModalLabel" aria-hidden="true">
-
-      <div class="modal-dialog">
-
-        <div class="modal-content">
-
-          <div class="modal-header">
-            <h5 class="modal-title" id="updateCategoryModalLabel">Add New Categories</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="qty-section">
+            <p class="available-qty tit">Available :</p>
+            <p class="price-text num">56</p>
           </div>
-
-          <form class="row g-3">
-
-            <div class="col-md-6">
-              <label for="cat-imgU" class="form-label">Category Image:</label>
-              <input type="file" class="form-control" id="cat-imgU" accept="image/*">
-            </div>
-
-            <div class="col-md-4">
-              <label for="categoryU" class="form-label">Category</label>
-              <input id="categoryU" class="form-select" type="text">
-            </div>
-
-            <div class="col-12">
-              <button type="submit" class="btn btn-primary">Sign in</button>
-            </div>
-          </form>
-
         </div>
 
-      </div>
+        <div class="qty-container">
+          <p class="tit">Quantity</p>
+          <input type="number" class="qty">
+        </div>
+
+        <div class="button-group-buynow">
+          <button class="buy-now-btn b-btn">Buy Now</button>
+          <button class="addcart-btn b-btn">Add to Cart</button>
+        </div>
+
+
+      </section>
+
+
+    </section>
+
+  </main>
+
+
+
+
+</main>
+
+
+<main id="details" class="active">
+
+  <section class="details-section">
+
+    <div class="details-container">
+      <img class="details-logo" src="assets/img/tracking.png" alt="Tracking">
+      <p class="type">Order Tracking</p>
+      <p class="desc">Track real time your order</p>
     </div>
 
-    <%--table--%>
-    <div class="table-responsive" style="max-height: 400px; overflow-y: auto; margin-top: 20px;">
-      <table class="table table-bordered">
-        <thead class="table-light">
-        <tr>
-          <th>Category Image</th>
-          <th>Category Name</th>
-          <th>#Action</th>
-        </tr>
-        </thead>
-        <tbody>
-
-        <tr>
-          <td><img src="category1.jpg" alt="Category 1" style="width:50px; height:50px;"></td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="category1.jpg" alt="Category 1" style="width:50px; height:50px;"></td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="category1.jpg" alt="Category 1" style="width:50px; height:50px;"></td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="category1.jpg" alt="Category 1" style="width:50px; height:50px;"></td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="category1.jpg" alt="Category 1" style="width:50px; height:50px;"></td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="category1.jpg" alt="Category 1" style="width:50px; height:50px;"></td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="category1.jpg" alt="Category 1" style="width:50px; height:50px;"></td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="category1.jpg" alt="Category 1" style="width:50px; height:50px;"></td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="category1.jpg" alt="Category 1" style="width:50px; height:50px;"></td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="category1.jpg" alt="Category 1" style="width:50px; height:50px;"></td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="category1.jpg" alt="Category 1" style="width:50px; height:50px;"></td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
-
-
-
-        </tbody>
-      </table>
+    <div class="details-container">
+      <img class="details-logo" src="assets/img/shipping.png" alt="Shipping">
+      <p class="type">Free Shipping</p>
+      <p class="desc">you wil love at great low prices</p>
     </div>
 
+    <div class="details-container">
+      <img class="details-logo" src="assets/img/payment.png" alt="Payment">
+      <p class="type">Flexible Payment</p>
+      <p class="desc">pay with multiple payments</p>
+    </div>
+
+    <div class="details-container">
+      <img class="details-logo" src="assets/img/delivery.png" alt="Delivery">
+      <p class="type">Fast Delivery</p>
+      <p class="desc">Experience the joy of fast shipping</p>
+    </div>
+
+    <div class="details-container">
+      <img class="details-logo" src="assets/img/24hours.png" alt="24Hours Customer Support">
+      <p class="type">Premium Support</p>
+      <p class="desc">Outstanding premium support</p>
+    </div>
 
   </section>
 
+
 </main>
 
-<%--view customer details--%>
-<main  id="view-customer-details" style="margin-top: 30px ;display: none">
+<main id="footer-page" class="active">
 
-  <section class="content">
-    <div class="card">
+  <footer class="footer-page">
 
-      <h5 class="card-header">Featured</h5>
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-
+    <section class="footer-image-section">
+      <div class="footer-text-section">
+        <p class="footer-title">BROWSE MODERN TODAY!</p>
+        <p class="footer-desc">Dive into our collection of contemporary furniture and decor,</p>
+        <p class="footer-desc">meticulously designed elevate your living spaces</p>
       </div>
-    </div>
-
-    <%--table--%>
-    <div class="table-responsive" style="max-height: 400px; overflow-y: auto; margin-top: 20px;">
-      <table class="table table-bordered">
-        <thead class="table-light">
-        <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Address</th>
-          <th>Telephone</th>
-          <th>Email</th>
-          <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-
-            <tr>
-        <td>Jane</td>
-        <td>Smith</td>
-        <td>456 Elm Street, Gotham</td>
-        <td>+1 555-987-6543</td>
-        <td>jane.smith@example.com</td>
-        <td>
-          <button class="btn btn-primary">Edit</button>
-          <button class="btn btn-danger">Delete</button>
-        </td>
-      </tr>
-            <tr>
-              <td>Jane</td>
-              <td>Smith</td>
-              <td>456 Elm Street, Gotham</td>
-              <td>+1 555-987-6543</td>
-              <td>jane.smith@example.com</td>
-              <td>
-                <button class="btn btn-primary">Edit</button>
-                <button class="btn btn-danger">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Jane</td>
-              <td>Smith</td>
-              <td>456 Elm Street, Gotham</td>
-              <td>+1 555-987-6543</td>
-              <td>jane.smith@example.com</td>
-              <td>
-                <button class="btn btn-primary">Edit</button>
-                <button class="btn btn-danger">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Jane</td>
-              <td>Smith</td>
-              <td>456 Elm Street, Gotham</td>
-              <td>+1 555-987-6543</td>
-              <td>jane.smith@example.com</td>
-              <td>
-                <button class="btn btn-primary">Edit</button>
-                <button class="btn btn-danger">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Jane</td>
-              <td>Smith</td>
-              <td>456 Elm Street, Gotham</td>
-              <td>+1 555-987-6543</td>
-              <td>jane.smith@example.com</td>
-              <td>
-                <button class="btn btn-primary">Edit</button>
-                <button class="btn btn-danger">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Jane</td>
-              <td>Smith</td>
-              <td>456 Elm Street, Gotham</td>
-              <td>+1 555-987-6543</td>
-              <td>jane.smith@example.com</td>
-              <td>
-                <button class="btn btn-primary">Edit</button>
-                <button class="btn btn-danger">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Jane</td>
-              <td>Smith</td>
-              <td>456 Elm Street, Gotham</td>
-              <td>+1 555-987-6543</td>
-              <td>jane.smith@example.com</td>
-              <td>
-                <button class="btn btn-primary">Edit</button>
-                <button class="btn btn-danger">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Jane</td>
-              <td>Smith</td>
-              <td>456 Elm Street, Gotham</td>
-              <td>+1 555-987-6543</td>
-              <td>jane.smith@example.com</td>
-              <td>
-                <button class="btn btn-primary">Edit</button>
-                <button class="btn btn-danger">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Jane</td>
-              <td>Smith</td>
-              <td>456 Elm Street, Gotham</td>
-              <td>+1 555-987-6543</td>
-              <td>jane.smith@example.com</td>
-              <td>
-                <button class="btn btn-primary">Edit</button>
-                <button class="btn btn-danger">Delete</button>
-              </td>
-            </tr>
-
-        </tbody>
-      </table>
-    </div>
+    </section>
 
 
-  </section>
+    <section class="last-footer-page">
+
+      <div>
+        <p class="footer-text">DecoraLUX</p>
+        <p class="footer-text2">stay informed about new arrivals</p>
+      </div>
+
+
+      <div>
+        <p class="address">4523 Roayal Ln.Messa,<br>Sri Lanka</p>
+        <p class="ftxt">+(94)774510748</p>
+        <p class="ftxt"> decorlux@gmail.com</p>
+      </div>
+
+
+    </section>
+
+
+  </footer>
+
 
 </main>
+
+
+
+
+
+
+
 
 
 <script src="assets/lib/jquery-3.7.1.min.js"></script>
-<script src="assets/script/admin-single-page.js"></script>
+<script src="assets/script/nav_popup.js"></script>
+<script src="assets/script/buy-now-navigate.js"></script>
 
 </body>
 </html>

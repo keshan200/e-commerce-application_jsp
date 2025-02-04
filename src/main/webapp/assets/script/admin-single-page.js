@@ -27,6 +27,8 @@ $('#view-cus-details').click(()=>{
     $('#view-customer-details').css("display","block")
     $('#view-customer-details').css("display","flex")
 
+
+
 })
 
 $('#').click(()=>{
