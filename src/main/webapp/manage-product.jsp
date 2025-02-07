@@ -72,7 +72,6 @@
 
                 <div class="modal-content">
 
-                    <a href="category-name-list">Reload</a>
 
                     <div class="modal-header">
                         <h5 class="modal-title" id="addProductModalLabel">Add New Product</h5>
@@ -87,23 +86,23 @@
 
                         <div class="col-md-6">
                             <label for="ProductName" class="form-label">Item Name:</label>
-                            <input type="text" class="form-control" id="ProductName">
+                            <input type="text" class="form-control" id="ProductName" name="productName">
                         </div>
 
                         <div class="col-12">
                             <label for="description" class="form-label">Description</label>
-                            <input type="text" class="form-control" id="description" >
+                            <input type="text" class="form-control" id="description"  name="description">
                         </div>
 
                         <div class="col-12">
                             <label for="categories" class="form-label">Categories:</label>
-                            <select id="categories" class="form-select">
+                            <select id="categories" class="form-select" name="category">
                                 <%
                                     List<Category> catList = (List<Category>) request.getAttribute("categoryNameList");
                                     if (catList != null && !catList.isEmpty()) {
                                         for (Category category : catList) {
                                 %>
-                                <option value="<%= category.getId() %>"><%=category.getCategory()%></option>
+                                <option class="op" value="<%= category.getId()%>"><%=category.getCategory()%></option>
                                 <%
                                     }
                                 } else {
@@ -112,7 +111,10 @@
                                 <%
                                     }
                                 %>
+
                             </select>
+
+
                         </div>
 
                         <div class="col-md-6">
@@ -236,7 +238,7 @@
                 %>
 
                 <tr>
-                    <td><img src="uploads/<%= product.getItemImage() %>" width="70px" height="auto" style="border-radius: 10px"></td>
+                    <td><img src="uploads/<%= product.getItemImage() %>" width="70px" height="70px" style="border-radius: 10px"></td>
                     <td><%=product.getItemName()%></td>
                     <td><%=product.getItemDescription()%></td>
                     <td><%=product.getQuantity()%></td>
@@ -271,5 +273,14 @@
 
 </main>
 
+
+<script src="assets/lib/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+
+
+
+</script>
 </body>
 </html>

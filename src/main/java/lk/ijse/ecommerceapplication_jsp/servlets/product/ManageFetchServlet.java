@@ -28,19 +28,17 @@ public class ManageFetchServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            // Fetch all categories
+
             List<Category> allCategories = categoryDao.getAllCategoryName(dataSource);
             req.setAttribute("categoryNameList", allCategories);
 
-            // Fetch all products
             List<Product> allProducts = productDao.getAllProduct(dataSource);
             req.setAttribute("productList", allProducts);
 
-            // Forward to manage-product.jsp
             RequestDispatcher dispatcher = req.getRequestDispatcher("manage-product.jsp");
             dispatcher.forward(req, resp);
 
-            // Debugging output
+
             System.out.println("Categories: " + allCategories);
             System.out.println("Products: " + allProducts);
 

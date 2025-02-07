@@ -69,9 +69,9 @@ public class AddProductsServlet extends HttpServlet {
             boolean isAdded = productDao.addProduct(product, dataSource);
 
             if (isAdded) {
-                resp.sendRedirect("product-list");
+                resp.sendRedirect("manage-products");
             }else {
-                resp.sendRedirect("product-list");
+                resp.sendRedirect("manage-products");
             }
 
         } catch (Exception e) {
