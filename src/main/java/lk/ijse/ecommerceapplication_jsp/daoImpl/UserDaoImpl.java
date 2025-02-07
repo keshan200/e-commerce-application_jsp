@@ -45,8 +45,6 @@ public class UserDaoImpl {
         return false;
     }
 
-
-
     public List<user> customerList(DataSource dataSource){
 
         List<user> users = new ArrayList<>();

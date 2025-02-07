@@ -1,4 +1,5 @@
-<%--
+<%@ page import="lk.ijse.ecommerceapplication_jsp.entity.Category" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: kesha
   Date: 2/5/2025
@@ -13,8 +14,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-
 
 
   <style>
@@ -145,6 +144,8 @@
 <main  id="category-manage-page" style="margin-top: 30px ;">
 
   <section class="content">
+
+    <%--card--%>
     <div class="card">
       <h5 class="card-header">Featured</h5>
       <div class="card-body">
@@ -154,6 +155,7 @@
         <div class="">
           <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategoryModal">Add New Product</button>
         </div>
+
       </div>
     </div>
 
@@ -166,7 +168,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
-          <form class="row g-3" action="category-save" method="post" enctype="multipart/form-data">
+          <form id="addCategoryForm" class="row g-3" action="category-save" method="post" enctype="multipart/form-data">
 
             <div class="col-md-6">
               <label for="cat-img" class="form-label">Category Image:</label>
@@ -179,7 +181,7 @@
             </div>
 
             <div class="col-12">
-              <button type="submit" class="btn btn-primary">Sign in</button>
+           <a><button type="submit" class="btn btn-primary">Add</button></a>
             </div>
           </form>
 
@@ -199,20 +201,24 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
-          <form class="row g-3">
+          <form class="row g-3" action="update-category" method="post" enctype="multipart/form-data">
+
+
+              <input type="hidden" id="categoryIdU" name="categoryId">
+
 
             <div class="col-md-6">
               <label for="cat-imgU" class="form-label">Category Image:</label>
-              <input type="file" class="form-control" id="cat-imgU" accept="image/*">
+              <input type="file" class="form-control" id="cat-imgU" accept="image/*" name="categoryImage">
             </div>
 
             <div class="col-md-4">
               <label for="categoryU" class="form-label">Category</label>
-              <input id="categoryU" class="form-select" type="text">
+              <input id="categoryU" class="form-select" type="text" name="categoryName">
             </div>
 
             <div class="col-12">
-              <button type="submit" class="btn btn-primary">Sign in</button>
+              <button type="submit" class="btn btn-primary">Save Changes</button>
             </div>
           </form>
 
@@ -221,133 +227,73 @@
       </div>
     </div>
 
+    <%--delete form--%>
+      <form id="deleteForm" action="delete-category" method="post" style="display: none;">
+        <input type="hidden" id="cID" name="categoryID">
+      </form>
+
    <%--table--%>
     <div class="table-responsive" style="max-height: 400px; overflow-y: auto; margin-top: 20px;">
+
+      <%
+        List<Category> datalist = (List<Category>) request.getAttribute("categoryList");
+        if (datalist != null && !datalist.isEmpty()) {
+      %>
       <table class="table table-bordered">
         <thead class="table-light">
         <tr>
+          <th>#ID</th>
           <th>Category Image</th>
           <th>Category Name</th>
           <th>#Action</th>
         </tr>
         </thead>
         <tbody>
+        <%
+          for (Category category : datalist) {
+        %>
+        <tr>
+          <td><%= category.getId()%></td>
+          <td><img src="uploads/<%= category.getCategoryImage() %>" width="20px" height="30px"></td>
+          <td><%= category.getCategory() %></td>
+          <td>
+            <div class="d-flex gap-2">
+             <%-- <button data-bs-toggle="modal" data-bs-target="#updateCategoryModal" type="button" class="btn btn-primary" >Edit</button>--%>
 
-        <tr>
-          <td><img src="category1.jpg" alt="Category 1" style="width:50px; height:50px;"></td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="category1.jpg" alt="Category 1" style="width:50px; height:50px;"></td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="category1.jpg" alt="Category 1" style="width:50px; height:50px;"></td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="category1.jpg" alt="Category 1" style="width:50px; height:50px;"></td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="category1.jpg" alt="Category 1" style="width:50px; height:50px;"></td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="category1.jpg" alt="Category 1" style="width:50px; height:50px;"></td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="category1.jpg" alt="Category 1" style="width:50px; height:50px;"></td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="category1.jpg" alt="Category 1" style="width:50px; height:50px;"></td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="category1.jpg" alt="Category 1" style="width:50px; height:50px;"></td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="category1.jpg" alt="Category 1" style="width:50px; height:50px;"></td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="category1.jpg" alt="Category 1" style="width:50px; height:50px;"></td>
-          <td>Furniture</td>
-          <td>
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </td>
-        </tr>
+               <button data-bs-toggle="modal"
+                       data-bs-target="#updateCategoryModal"
+                       type="button"
+                       class="btn btn-primary edit-category-btn"
 
+                       data-id = "<%=category.getId()%>"
+                       data-name="<%= category.getCategory() %>"
+                       data-image="<%= category.getCategoryImage()%>">
+                 Edit
+               </button>
 
-
+               <button type="button"
+                       class="btn btn-danger delete-btn"
+                       data-delete="<%= category.getId() %>">
+                 Delete
+               </button>
+            </div>
+          </td>
+        </tr>
+        <%
+          }
+        %>
         </tbody>
       </table>
+      <%
+      } else {
+      %>
+      <div class="alert alert-warning">
+        No categories found.
+      </div>
+      <%
+        }
+      %>
+
     </div>
 
 
@@ -356,5 +302,115 @@
 </main>
 
 
+<script src="assets/lib/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="assets/script/category-form-alert.js"></script>
+
+
+
+
+<%--<script>
+    $(document).ready(function () {
+      $(".edit-category-btn").on("click", function () {
+        const catIdd = $(this).data("id");
+        const catName = $(this).data("name");
+        const attribute = $(this).data("image");
+
+        $("#categoryU").val(catName);
+        $("#categoryIdU").val(catIdd);
+        $("#imageU").val(`uploads/${attribute}`);//file field get value not working yet
+      });
+
+
+
+
+      $("#updateCategoryModal form").on("submit", function (event) {
+        event.preventDefault();
+
+        if ($("#categoryU").val().trim() !== "") {
+
+          let imgNull = $("#imageU").val()=== "";//image null check not working yet
+          let nameNUll = $("#categoryU").val("");
+
+          if (imgNull || nameNUll ) {
+            Swal.fire({
+              title: "Error!",
+              text: "Please fill in all required fields.",
+              icon: "error",
+            });
+          }
+          Swal.fire({
+            title: "Updated!",
+            icon: "success",
+          }).then(() => this.submit());
+        } else {
+          Swal.fire({
+            title: "Error!",
+            text: "Please fill in all required fields.",
+            icon: "error",
+          });
+
+        }
+      });
+    });
+  </script>
+
+<script>
+
+  $(document).ready(() => {
+    $(".delete-btn").on("click", function () {
+      const catId = $(this).data("delete");
+
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $("#cID").val(catId);
+          $("#deleteForm").submit();
+        }
+      });
+    });
+  });
+
+</script>
+
+
+<script>
+  $(document).ready(function () {
+
+    $("#addCategoryForm").on("submit", function (event) {
+      event.preventDefault();
+
+      const categoryName = $("#category").val().trim();
+      const categoryImage = $("#cat-img").val();
+
+      // Validate inputs
+      if (categoryName === "" || categoryImage === "") {
+        Swal.fire({
+          title: "Error!",
+          text: "Please fill in all required fields.",
+          icon: "error",
+        });
+        return;
+      }
+
+
+      Swal.fire({
+        title: "Success!",
+        text: "Category added successfully.",
+        icon: "success",
+      }).then(() => {
+        this.submit();
+      });
+    });
+  });
+
+</script>--%>
 </body>
 </html>

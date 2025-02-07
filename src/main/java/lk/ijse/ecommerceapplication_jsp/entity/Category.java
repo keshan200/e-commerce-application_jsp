@@ -9,7 +9,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class Category {
+    private int id;
     private String category;
     private String categoryImage;
 
+    public Category(String category, String categoryImage) {
+        this.category = category;
+        this.categoryImage = categoryImage;
+    }
+
+    public Category(int id) {
+        this.id = id;
+    }
 }

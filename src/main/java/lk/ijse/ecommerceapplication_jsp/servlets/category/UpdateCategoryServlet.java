@@ -1,8 +1,6 @@
 package lk.ijse.ecommerceapplication_jsp.servlets.category;
 
 import jakarta.annotation.Resource;
-import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -17,24 +15,24 @@ import javax.sql.DataSource;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.List;
 
 @MultipartConfig(
         fileSizeThreshold = 1024 * 1024 * 2, // 2MB
         maxFileSize = 1024 * 1024 * 10,      // 10MB
         maxRequestSize = 1024 * 1024 * 50   // 50MB
 )
-@WebServlet(name = "AddCategoryServlet" , value = "/category-save")
-public class AddCategoryServlet extends HttpServlet {
 
+@WebServlet(name="UpdateCategoryServlet" ,value = "/update-category")
+public class UpdateCategoryServlet extends HttpServlet {
 
     @Resource(name = "java:comp/env/jdbc/pool")
     private DataSource dataSource;
     CategoryDaoImpl categoryDao = new CategoryDaoImpl();
 
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        int id = Integer.parseInt(req.getParameter("categoryId"));
         String name = req.getParameter("categoryName");
         Part filePart = req.getPart("categoryImage");
 
@@ -58,9 +56,11 @@ public class AddCategoryServlet extends HttpServlet {
 
         try {
             filePart.write(uploadPath + File.separator + fileName);
-            Category category = new Category(name, fileName);
-            boolean isAdded = categoryDao.addCategory(category, dataSource);
 
+            Category category = new Category(id,name, fileName);
+            boolean isAdded = categoryDao.updateCategory(category, dataSource);
+
+            System.out.println("cattte"+category);
             if (isAdded) {
                 resp.sendRedirect("category-list");
             } else {
@@ -75,6 +75,4 @@ public class AddCategoryServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-
-
 }
