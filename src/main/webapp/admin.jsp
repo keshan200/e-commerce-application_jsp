@@ -114,7 +114,7 @@
     <ul class="nav-list">
       <li><a href="#" id="dashboard">Dashboard</a></li>
       <a href="customer-list" id="view-cus-details">View Customer Details</a>
-      <li><a href="manage-product.jsp" id="manage-product">Manage Products</a></li>
+      <li><a href="products-list" id="manage-product">Manage Products</a></li>
       <li><a href="category-list" id="manage-categories">Manage Categories</a></li>
       <li><a href="#" id="manage-users">Manage Users</a></li>
     </ul>

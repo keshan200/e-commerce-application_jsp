@@ -254,7 +254,7 @@
         %>
         <tr>
           <td><%= category.getId()%></td>
-          <td><img src="uploads/<%= category.getCategoryImage() %>" width="20px" height="30px"></td>
+          <td><img src="uploads/<%= category.getCategoryImage() %>" width="70px" height="auto"></td>
           <td><%= category.getCategory() %></td>
           <td>
             <div class="d-flex gap-2">
@@ -306,111 +306,5 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="assets/script/category-form-alert.js"></script>
 
-
-
-
-<%--<script>
-    $(document).ready(function () {
-      $(".edit-category-btn").on("click", function () {
-        const catIdd = $(this).data("id");
-        const catName = $(this).data("name");
-        const attribute = $(this).data("image");
-
-        $("#categoryU").val(catName);
-        $("#categoryIdU").val(catIdd);
-        $("#imageU").val(`uploads/${attribute}`);//file field get value not working yet
-      });
-
-
-
-
-      $("#updateCategoryModal form").on("submit", function (event) {
-        event.preventDefault();
-
-        if ($("#categoryU").val().trim() !== "") {
-
-          let imgNull = $("#imageU").val()=== "";//image null check not working yet
-          let nameNUll = $("#categoryU").val("");
-
-          if (imgNull || nameNUll ) {
-            Swal.fire({
-              title: "Error!",
-              text: "Please fill in all required fields.",
-              icon: "error",
-            });
-          }
-          Swal.fire({
-            title: "Updated!",
-            icon: "success",
-          }).then(() => this.submit());
-        } else {
-          Swal.fire({
-            title: "Error!",
-            text: "Please fill in all required fields.",
-            icon: "error",
-          });
-
-        }
-      });
-    });
-  </script>
-
-<script>
-
-  $(document).ready(() => {
-    $(".delete-btn").on("click", function () {
-      const catId = $(this).data("delete");
-
-      Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
-      }).then((result) => {
-        if (result.isConfirmed) {
-          $("#cID").val(catId);
-          $("#deleteForm").submit();
-        }
-      });
-    });
-  });
-
-</script>
-
-
-<script>
-  $(document).ready(function () {
-
-    $("#addCategoryForm").on("submit", function (event) {
-      event.preventDefault();
-
-      const categoryName = $("#category").val().trim();
-      const categoryImage = $("#cat-img").val();
-
-      // Validate inputs
-      if (categoryName === "" || categoryImage === "") {
-        Swal.fire({
-          title: "Error!",
-          text: "Please fill in all required fields.",
-          icon: "error",
-        });
-        return;
-      }
-
-
-      Swal.fire({
-        title: "Success!",
-        text: "Category added successfully.",
-        icon: "success",
-      }).then(() => {
-        this.submit();
-      });
-    });
-  });
-
-</script>--%>
 </body>
 </html>

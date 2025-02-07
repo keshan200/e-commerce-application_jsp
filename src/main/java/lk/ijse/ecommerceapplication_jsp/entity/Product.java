@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class Product {
 
+    private int id;
     private String itemName;
     private String itemDescription;
     private String itemImage;
@@ -17,4 +18,15 @@ public class Product {
     private Double unitPrice;
     private String material;
     private int categoryID;
+
+
+    public Product(String itemName, String itemDescription, String itemImage, int quantity, Double unitPrice, String material, int categoryID) {
+        this.itemName = itemName;
+        this.itemDescription = itemDescription;
+        this.itemImage = itemImage;
+        this.quantity = quantity;
+        this.unitPrice = unitPrice;
+        this.material = material;
+        this.categoryID = categoryID;
+    }
 }
