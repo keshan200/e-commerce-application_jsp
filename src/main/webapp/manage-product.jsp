@@ -1,5 +1,6 @@
 <%@ page import="lk.ijse.ecommerceapplication_jsp.entity.Product" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="lk.ijse.ecommerceapplication_jsp.entity.Category" %><%--
   Created by IntelliJ IDEA.
   User: kesha
   Date: 2/5/2025
@@ -71,6 +72,8 @@
 
                 <div class="modal-content">
 
+                    <a href="category-name-list">Reload</a>
+
                     <div class="modal-header">
                         <h5 class="modal-title" id="addProductModalLabel">Add New Product</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -95,8 +98,20 @@
                         <div class="col-12">
                             <label for="categories" class="form-label">Categories:</label>
                             <select id="categories" class="form-select">
-                                <option selected>Choose...</option>
-                                <option>...</option>
+                                <%
+                                    List<Category> catList = (List<Category>) request.getAttribute("categoryNameList");
+                                    if (catList != null && !catList.isEmpty()) {
+                                        for (Category category : catList) {
+                                %>
+                                <option value="<%= category.getId() %>"><%=category.getCategory()%></option>
+                                <%
+                                    }
+                                } else {
+                                %>
+                                <option value="">No categories available</option>
+                                <%
+                                    }
+                                %>
                             </select>
                         </div>
 

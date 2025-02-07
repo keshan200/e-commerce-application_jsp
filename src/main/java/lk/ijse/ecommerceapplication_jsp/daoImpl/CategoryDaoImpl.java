@@ -117,5 +117,29 @@ public class CategoryDaoImpl {
         return false;
     }
 
+    public List<Category> getAllCategoryName(DataSource dataSource){
+
+        List<Category> categoryList = new ArrayList<>();
+
+        try {
+            Connection connection = dataSource.getConnection();
+            PreparedStatement pstm = connection.prepareStatement("SELECT categoryID, category FROM category");
+            ResultSet resultSet = pstm.executeQuery();
+
+            while (resultSet.next()){
+                int categoryId = resultSet.getInt("categoryID");
+                String name = resultSet.getString("category");
+
+                Category Category = new Category(categoryId,name);
+                categoryList.add(Category);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return categoryList;
     }
+
+
+}
 
