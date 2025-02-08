@@ -29,4 +29,8 @@ public class Product {
         this.material = material;
         this.categoryID = categoryID;
     }
+
+    public Product(int id) {
+        this.id = id;
+    }
 }

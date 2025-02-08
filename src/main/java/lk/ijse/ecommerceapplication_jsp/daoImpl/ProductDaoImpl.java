@@ -74,5 +74,28 @@ public class ProductDaoImpl {
         return products;
     }
 
+    public boolean deleteProduct(Product product, DataSource dataSource) {
+
+        try ( Connection connection = dataSource.getConnection();
+              PreparedStatement pstm = connection.prepareStatement("DELETE FROM item WHERE itemID = ?")){
+
+
+            pstm.setInt(1,product.getId());
+            boolean isExecute = pstm.executeUpdate()>0;
+
+            if (isExecute) {
+                return true;
+            }else {
+                System.out.println("cant'delete");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        return false;
+    }
+
 
 }

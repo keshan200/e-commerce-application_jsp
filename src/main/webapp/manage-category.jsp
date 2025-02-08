@@ -227,7 +227,7 @@
       </div>
     </div>
 
-    <%--delete form--%>
+      <%--delete form--%>
       <form id="deleteForm" action="delete-category" method="post" style="display: none;">
         <input type="hidden" id="cID" name="categoryID">
       </form>
@@ -254,7 +254,7 @@
         %>
         <tr>
           <td><%= category.getId()%></td>
-          <td><img src="uploads/<%= category.getCategoryImage() %>" width="70px" height="auto"></td>
+          <td><img src="uploads/<%= category.getCategoryImage() %>" width="70px" height="70px" style="border-radius: 10px"></td>
           <td><%= category.getCategory() %></td>
           <td>
             <div class="d-flex gap-2">

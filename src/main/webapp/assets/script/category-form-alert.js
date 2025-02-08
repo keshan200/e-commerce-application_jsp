@@ -19,10 +19,9 @@ $(document).ready(function () {
     $("#updateCategoryModal form").on("submit", function (event) {
         event.preventDefault();
 
-        if ($("#categoryU").val().trim() !== "") {
+        let imgNull = $("#imageU").val()=== "";//image null check not working yet
+        let nameNUll = $("#categoryU").val()=== "";
 
-            let imgNull = $("#imageU").val()=== "";//image null check not working yet
-            let nameNUll = $("#categoryU").val("");
 
             if (imgNull || nameNUll ) {
                 Swal.fire({
@@ -30,18 +29,11 @@ $(document).ready(function () {
                     text: "Please fill in all required fields.",
                     icon: "error",
                 });
-            }
-            Swal.fire({
+            }else{
+               Swal.fire({
                 title: "Updated!",
                 icon: "success",
-            }).then(() => this.submit());
-        } else {
-            Swal.fire({
-                title: "Error!",
-                text: "Please fill in all required fields.",
-                icon: "error",
-            });
-
+               }).then(() => this.submit());
         }
     });
 

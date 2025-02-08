@@ -210,6 +210,12 @@
             </div>
         </div>
 
+         <%--delete model--%>
+        <form id="deleteForm" action="delete-product" method="post" style="display: none;">
+                <input type="hidden" id="itemID" name="itmID">
+        </form>
+
+
         <%--table--%>
         <div class="table-responsive" style="max-height: 400px; overflow-y: auto; margin-top: 20px;">
 
@@ -248,11 +254,10 @@
                     <td>
                         <div class="d-flex gap-2">
                             <button type="button" class="btn btn-primary">Edit</button>
-                            <button type="button" class="btn btn-danger">Delete</button>
+                            <button data-delete = "<%=product.getId()%>" type="button" class="btn btn-danger delete-btn">Delete</button>
                         </div>
                     </td>
                 </tr>
-
 
                 <%}%>
                 </tbody>
@@ -279,8 +284,28 @@
 
 <script>
 
+    $(document).ready(function () {
 
+        $(".delete-btn").on("click", function () {
+            const itemID = $(this).data("delete");
 
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $("#itemID").val(itemID);
+                    $("#deleteForm").submit();
+                }
+            });
+        });
+
+    })
 </script>
 </body>
 </html>
