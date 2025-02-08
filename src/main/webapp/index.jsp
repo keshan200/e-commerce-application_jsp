@@ -1,3 +1,4 @@
+<%@ page import="lk.ijse.ecommerceapplication_jsp.entity.user" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,6 +37,22 @@
 
 <%--stye--%>
   <style>
+  /*  <div class="d-flex account-sec" style="justify-content: center;align-items: center">
+    <img class="acc-img" style="height: 40px;width: 40px;border-radius: 100%" src="assets/img/man.png">
+    <h4 class="acc-name" style="color: white;">Keshan,</h4>
+    </div>*/
+
+    .account-sec{
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+
+  .acc-name{
+    margin: 0;
+    font-size: 1.3rem;
+    font-family: 'Lexend', sans-serif;
+  }
 
 
   </style>
@@ -137,18 +154,47 @@
     </div>
 
 
+    <%
+      HttpSession sessions = request.getSession(false);
+      lk.ijse.ecommerceapplication_jsp.entity.user loggedInUser = null;
 
+      if (sessions != null) {
+        Object sessionUser = session.getAttribute("user");
+        if (sessionUser instanceof lk.ijse.ecommerceapplication_jsp.entity.user) {
+          loggedInUser = (lk.ijse.ecommerceapplication_jsp.entity.user) sessionUser;
+        }
+      }
+    %>
+
+    <% if (loggedInUser != null) { %>
     <div class="header-image" style="display: flex;gap: 60px">
-      <img class="cart" src="assets/img/cart-black.png" alt="Cart">
+      
+        <div class="d-flex account-sec">
+          <img class="acc-img" style="height: 40px;width: 40px;border-radius: 100%" src="assets/img/man.png">
 
+          <p class="acc-name" style="color: white;">Keshan,</p>
+        </div>
+
+      <a href="" class="position-relative">
+        <img src="assets/img/shop.png" alt="Inbox" class="img-fluid" style="width: 35px; height: auto;">
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+           99+
+             <span class="visually-hidden">unread messages</span>
+           </span>
+      </a>
+
+
+      <% } else { %>
 
 
       <div class="button-group">
         <a href="admin.jsp" style="color: white"><img class="admin" src="assets/img/admin.png"></a>
 
-        <a href="" type="submit" class="btnH register-btn" style="z-index: 1">Register</a>
+        <a href="customer-register.jsp" type="submit" class="btnH register-btn" style="z-index: 1">Register</a>
         <a href="" class="btnH login-btn" style="z-index: 1">Login</a>
       </div>
+
+      <% } %>
     </div>
 
 

@@ -1,4 +1,4 @@
-package lk.ijse.ecommerceapplication_jsp.servlets.customer;
+package lk.ijse.ecommerceapplication_jsp.servlets.admin_controller.customer;
 
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletException;
@@ -13,8 +13,8 @@ import java.io.IOException;
 
 
 
-@WebServlet(name = "CustomerRegisterServlet",value = "/customer-register")
-public class CustomerRegisterServlet extends HttpServlet {
+@WebServlet(name = "AdminRegisterServlet",value = "/admin-register")
+public class AdminRegisterServlet extends HttpServlet {
 
     @Resource(name = "java:comp/env/jdbc/pool")
     private DataSource dataSource;

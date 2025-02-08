@@ -1,4 +1,4 @@
-package lk.ijse.ecommerceapplication_jsp.servlets.product;
+package lk.ijse.ecommerceapplication_jsp.servlets.admin_controller.product;
 
 import jakarta.annotation.Resource;
 import jakarta.servlet.RequestDispatcher;

@@ -112,7 +112,7 @@
     <p class="brand-admin">DecoraLUX</p>
 
     <ul class="nav-list">
-      <li><a href="#" id="dashboard">Dashboard</a></li>
+      <li><a href="admin.jsp" id="dashboard">Dashboard</a></li>
       <a href="customer-list" id="view-cus-details">View Customer Details</a>
       <li><a href="manage-products" id="manage-product">Manage Products</a></li>
       <li><a href="category-list" id="manage-categories">Manage Categories</a></li>
@@ -137,7 +137,18 @@
 
 <script src="assets/lib/jquery-3.7.1.min.js"></script>
 <script src="assets/script/admin-single-page.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<script>
+
+  $("#manage-users").click(()=>{
+    Swal.fire({
+      title: "info",
+      text: "function not Available",
+      icon: "question"
+    });
+  })
+</script>
 
 </body>
 </html>

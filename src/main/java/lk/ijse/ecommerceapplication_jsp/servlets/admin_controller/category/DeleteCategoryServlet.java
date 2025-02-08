@@ -1,4 +1,4 @@
-package lk.ijse.ecommerceapplication_jsp.servlets.category;
+package lk.ijse.ecommerceapplication_jsp.servlets.admin_controller.category;
 
 
 import jakarta.annotation.Resource;

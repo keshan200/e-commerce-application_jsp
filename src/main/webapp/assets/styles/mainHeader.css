@@ -58,9 +58,9 @@
 
 .cart{
     height: auto;
-    width: 50px;
+    width: 40px;
     z-index: 1;
-    display: none;
+
 }
 
 .button-group {
