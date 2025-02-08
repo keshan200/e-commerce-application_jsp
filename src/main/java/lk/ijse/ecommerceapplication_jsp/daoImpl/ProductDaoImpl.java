@@ -97,5 +97,36 @@ public class ProductDaoImpl {
         return false;
     }
 
+    public boolean updateProduct(Product product, DataSource dataSource) {
+
+        try {
+            Connection connection = dataSource.getConnection();
+            PreparedStatement pstm = connection.prepareStatement("UPDATE item SET itemName = ?, itemDescription = ?, itemImage = ?, quantity = ?, unitPrice = ?, material = ?, categoryID = ? WHERE itemID = ");
+
+            pstm.setString(1, product.getItemName());
+            pstm.setString(2, product.getItemDescription());
+            pstm.setString(3, product.getItemImage());
+            pstm.setInt(4, product.getQuantity());
+            pstm.setDouble(5, product.getUnitPrice());
+            pstm.setString(6, product.getMaterial());
+            pstm.setInt(7, product.getCategoryID());
+            pstm.setInt(8, product.getId());
+
+            boolean isExecute = pstm.executeUpdate()>0;
+            if (isExecute) {
+                return true;
+            }else {
+                System.out.println("cant'update");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        return false;
+
+    }
+
 
 }

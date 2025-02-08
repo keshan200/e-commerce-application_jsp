@@ -78,7 +78,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
-                    <form class="row g-3" action="product-save" method="post"  enctype="multipart/form-data">
+                    <form class="row g-3" action="product-save" method="post"  enctype="multipart/form-data" id="addProductForm">
                         <div class="col-md-6">
                             <label for="image" class="form-label">Image:</label>
                             <input type="file" class="form-control" id="image" name="itemImage" accept="image/*">
@@ -158,44 +158,59 @@
 
 
 
-                    <form class="row g-3">
+                    <form class="row g-3" id="product-update-form" action="update-product" method="post" enctype="multipart/form-data">
+
+                        <input type="text" id="itemIDU" name="itemIdU">
 
                         <div class="col-md-6">
                             <label for="imageU" class="form-label">Image:</label>
-                            <input type="file" class="form-control" id="imageU" name="itemImage" accept="image/*">
+                            <input type="file" class="form-control" id="imageU" name="itemImageU" accept="image/*">
                         </div>
 
                         <div class="col-md-6">
                             <label for="ProductNameU" class="form-label">Item Name:</label>
-                            <input type="text" class="form-control" id="ProductNameU">
+                            <input type="text" class="form-control" id="ProductNameU" name="itemNameU">
                         </div>
 
                         <div class="col-12">
                             <label for="descriptionU" class="form-label">Description</label>
-                            <input type="text" class="form-control" id="descriptionU" >
+                            <input type="text" class="form-control" id="descriptionU" name="descU" >
                         </div>
 
                         <div class="col-12">
                             <label for="categoriesU" class="form-label">Categories:</label>
-                            <select id="categoriesU" class="form-select">
-                                <option selected>Choose...</option>
-                                <option>...</option>
+                            <select id="categoriesU" class="form-select" name="categoryU">
+
+                                <%
+                                   List<Category>list = (List<Category>) request.getAttribute("categoryNameList");
+                                           if(list != null && !list.isEmpty()){
+                                           for (Category category : list) {
+                                %>
+                                <option class="op"  name="optionU" id="op" value="<%= category.getId()%>"><%=category.getCategory()%></option>
+                                <%
+                                    }
+                                } else {
+                                %>
+                                <option value="">No categories available</option>
+                                <%
+                                    }
+                                %>
                             </select>
                         </div>
 
                         <div class="col-md-6">
                             <label for="materialU" class="form-label">Material</label>
-                            <input type="text" class="form-control" id="materialU">
+                            <input type="text" class="form-control" id="materialU" name="materialU">
                         </div>
 
                         <div class="col-md-4">
                             <label for="priceU" class="form-label">Unit Price:</label>
-                            <input id="priceU" class="form-control">
+                            <input id="priceU" class="form-control" name="priceU">
                         </div>
 
                         <div class="col-md-2">
                             <label for="qtyU" class="form-label">Quantity</label>
-                            <input type="number" class="form-control" id="qtyU">
+                            <input type="number" class="form-control" id="qtyU" name="qtyU">
                         </div>
 
 
@@ -253,7 +268,23 @@
                     <td><%=product.getCategoryID()%></td>
                     <td>
                         <div class="d-flex gap-2">
-                            <button type="button" class="btn btn-primary">Edit</button>
+                            <button data-bs-toggle="modal"
+                                    data-bs-target="#updateProductModal"
+                                    type="button"
+                                    class="btn btn-primary edit-product-btn"
+
+                                    data-id = "<%=product.getId()%>"
+                                    data-name="<%= product.getItemName()%>"
+                                    data-image="<%=product.getItemImage()%>"
+                                    data-desc = "<%=product.getItemDescription()%>"
+                                    data-price = "<%=product.getUnitPrice()%>"
+                                    data-qty = "<%=product.getQuantity()%>"
+                                    data-material = "<%=product.getMaterial()%>"
+                                    data-categoty = "<%=product.getCategoryID()%>"
+                                                  >
+                                Edit
+                            </button>
+
                             <button data-delete = "<%=product.getId()%>" type="button" class="btn btn-danger delete-btn">Delete</button>
                         </div>
                     </td>
@@ -282,30 +313,8 @@
 <script src="assets/lib/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script>
+<script src="assets/script/product-from-alert.js"></script>
 
-    $(document).ready(function () {
 
-        $(".delete-btn").on("click", function () {
-            const itemID = $(this).data("delete");
-
-            Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, delete it!"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    $("#itemID").val(itemID);
-                    $("#deleteForm").submit();
-                }
-            });
-        });
-
-    })
-</script>
 </body>
 </html>

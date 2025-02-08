@@ -65,7 +65,7 @@ $(document).ready(function () {
         const categoryName = $("#category").val().trim();
         const categoryImage = $("#cat-img").val();
 
-        // Validate inputs
+
         if (categoryName === "" || categoryImage === "") {
             Swal.fire({
                 title: "Error!",

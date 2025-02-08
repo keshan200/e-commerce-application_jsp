@@ -15,12 +15,12 @@ public class Product {
     private String itemDescription;
     private String itemImage;
     private int quantity;
-    private Double unitPrice;
+    private double unitPrice;
     private String material;
     private int categoryID;
 
 
-    public Product(String itemName, String itemDescription, String itemImage, int quantity, Double unitPrice, String material, int categoryID) {
+    public Product(String itemName, String itemDescription, String itemImage, int quantity, double unitPrice, String material, int categoryID) {
         this.itemName = itemName;
         this.itemDescription = itemDescription;
         this.itemImage = itemImage;
